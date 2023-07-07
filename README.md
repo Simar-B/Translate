@@ -1,9 +1,9 @@
 # How to install/run app
 - use pip to install libretranslate
-- run libretranslate by running `libretranslate` in the command line
-- go to `aview-challenge/dist/index.html` and open the html file. This is the app.
+- run libretranslate by running `libretranslate` in the command line. Make sure it is running on port 5000.
+- go to https://simar-b.github.io/Translate/
 
-Alternatively, you can use `node` and do `npm install` and then `npm run dev` if you want to run it via dev mode.
+Alternatively, you can use `node` and do `npm install` and then `npm run dev` if you want to run it via dev mode. You will still need to run libretranslate.
 
 # Approach
 My approach to this challenge was to make the design as simple as possible since the requirements themselves were simple as well.
