@@ -13,7 +13,7 @@ breaks single responsibility principle. However, even though we are breaking the
 so I thought it was reasonable to leave it at that instead of breaking it up and creating lots of very small components.
 
 Another reason why I left everything in one App component is that my submission only really has 5 elements. They are the 2 buttons to get a joke and to translate,
-as well as 2 header elements to display the joke and the translated joke, as well as the scroll/select item to select the language. I didn't think it was worth it to split these 5 pieces into 5 components because each of these pieces are very simple and straight forward, and making them into separate components may have involved moving state around them which I don't think would have been worth it given adding them into one component still makes a small component.
+as well as 2 header elements to display the joke and the translated joke, as well as the scroll/select item to select the language. I didn't think it was worth it to split these 5 pieces into multiple components because each of these pieces are very simple and straight forward, and making them into separate components may have involved moving state around them which I don't think would have been worth it given adding them into one component still makes a small component.
 
 
 

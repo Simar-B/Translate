@@ -7,11 +7,15 @@ function App() {
   const [languages, setLanguages] = useState([])
   const [targetLanguage, setTargetLanguage] = useState("")
   const [translatedText, setTranslatedText] = useState("")
+  const [warning, setWarning] = useState(false)
 
   function handleClickContent() {
     axios.get('https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=single').then(res => {
       setContent(res.data.joke)
     })
+    if (targetLanguage !== ""){
+      setWarning(false)
+    }
   }
 
   useEffect(() => {
@@ -25,6 +29,9 @@ function App() {
   const handleChange = (event) => {
     var lang = languages.filter(x => x.code === event.target.value)
     setTargetLanguage(lang[0].code)
+    if (content !== "Click the button to get a joke"){
+      setWarning(false)
+    }
   }
 
   function handleTranslate() {
@@ -56,7 +63,7 @@ function App() {
           {languages.map((language, index) => (<MenuItem value={language.code} key={index}>{language.name} </MenuItem>))}
         </Select>
       </FormControl>
-      {(targetLanguage === "" || content === "Click the button to get a joke!" )&& <Alert sx={{margin:0.5}}severity="warning" onClose={() => {}}>
+      {warning && <Alert sx={{margin:0.5}} severity="warning" onClose={() => setWarning(false)}>
         <AlertTitle>Warning</AlertTitle>
         {targetLanguage === "" && <p>You must choose a language before translating!</p>}
         {content === "Click the button to get a joke" && <p>Click the button to get a joke!</p>}
